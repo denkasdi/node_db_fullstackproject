@@ -8,7 +8,7 @@ const register = async (req, res) => {
 		const salt = bcrypt.genSaltSync(10);
 		const hashedPassword = bcrypt.hashSync(body.password, salt);
 		const dbRes = await query(
-			"INSERT INTO users (email, username, password, isAdmin, lokasi, phone, result_spm, sex, subjek, aboutme) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)",
+			"INSERT INTO users (email, username, password, isAdmin, lokasi, phone, result_spm, sex, subjek, aboutme, rate) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)",
 			[
 				body.email,
 				body.username,
@@ -20,6 +20,7 @@ const register = async (req, res) => {
 				body.sex,
 				body.subjek,
 				body.aboutme,
+				rate.rate,
 			]
 		);
 		// .then(
