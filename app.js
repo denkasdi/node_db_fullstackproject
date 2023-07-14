@@ -55,6 +55,7 @@ app.post(
 	check("sex").notEmpty().bail(),
 	check("subjek").notEmpty().bail(),
 	check("aboutme").notEmpty().bail(),
+	check("rate").notEmpty().bail(),
 	//validatorResponse,
 	register
 );
