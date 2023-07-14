@@ -3,10 +3,10 @@ const { Pool } = pkg;
 
 const db = new Pool({
 	host: process.env.DB_HOST || "localhost",
-	user: process.env.DB_HOST || "postgres",
-	database: process.env.DB_HOST || "my-blog",
-	password: process.env.DB_HOST || "Messi@950131",
-	ssl: process.env.DB_SSL || false,
+	user: process.env.DB_USER || "postgres",
+	database: process.env.DB_DATABSE || "my-blog",
+	password: process.env.DB_PASSWORD || "Messi@950131",
+	ssl: process.env.DB_SSL || true,
 	max: 20,
 	idleTimeoutMillis: 30000,
 	connectionTimeoutMillis: 2000,
