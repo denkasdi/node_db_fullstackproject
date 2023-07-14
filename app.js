@@ -120,4 +120,22 @@ app.get("/api/users/:username", async (req, res) => {
 	res.status(200).json({ serverRes });
 });
 
+app.get("/api/location/:lokasi", async (req, res) => {
+	const lokasi = req.params.lokasi;
+	const dbRes = await query("SELECT * FROM users WHERE lokasi=$1", [lokasi]);
+
+	if (dbRes.rows.length === 0) {
+		const notFoundRes = {
+			message: "No location found!",
+		};
+		res.status(404).json(notFoundRes);
+	}
+
+	const serverRes = {
+		message: "User has been found!!",
+		data: dbRes.rows,
+	};
+	res.status(200).json({ serverRes });
+});
+
 export default app;
