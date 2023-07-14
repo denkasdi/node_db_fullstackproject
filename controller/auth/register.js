@@ -20,7 +20,7 @@ const register = async (req, res) => {
 				body.sex,
 				body.subjek,
 				body.aboutme,
-				rate.rate,
+				body.rate,
 			]
 		);
 		// .then(
