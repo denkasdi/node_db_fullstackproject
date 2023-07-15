@@ -121,7 +121,7 @@ app.get("/api/users/:username", async (req, res) => {
 	res.status(200).json({ serverRes });
 });
 
-app.delete("/api/usersdelete/:username", isAuthenticated, async (req, res) => {
+app.delete("/api/usersdelete/:username", async (req, res) => {
 	const username = req.params.username;
 
 	const dbRes = await query("DELETE FROM users WHERE username = $1", [
