@@ -23,32 +23,6 @@ const login = async (req, res) => {
 				throw res;
 			}
 		});
-
-		// decrypt the hash from db and compare
-		bcrypt.compare(body.password, user.password, (error, bcryptRes) => {
-			if (bcryptRes) {
-				const token = generateAccessToken({
-					id: user.id,
-					username: user.username,
-					email: user.email,
-					isAdmin: user.isadmin,
-				});
-
-				const serverRes = {
-					message: "Login successfull",
-					data: user,
-					jwt: token,
-				};
-				res.status(200).json(serverRes);
-			} else {
-				const serverRes = {
-					message: "Login unsuccessfull",
-					error: "Invalid credential",
-					data: error,
-				};
-				res.status(401).json(serverRes);
-			}
-		});
 	} catch (error) {
 		const serverRes = {
 			message: "Invalid request",

@@ -22,11 +22,11 @@ describe("Try login using admin", () => {
 			.post("/api/login")
 			.send({
 				identifier: "admin",
-				password: "password",
+				password: "mypassword1",
 			})
 			.then((response) => {
-				//expect(response.statusCode).toBe(200);
-				expect(response.body.message).toEqual("Login successfull");
+				expect(response.statusCode).toBe(200);
+				//expect(response.body.message).toEqual("Login successfull");
 			});
 	});
 });
