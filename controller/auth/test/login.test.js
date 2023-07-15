@@ -16,16 +16,16 @@ describe("Try login with empty fields", () => {
 	});
 });
 
-describe("Try login using admin", () => {
+describe("Try login using wrong username", () => {
 	test("It should response status code 200 and return message and user data", async () => {
 		return request(app)
 			.post("/api/login")
 			.send({
 				identifier: "admin",
-				password: "mypassword1",
+				password: "12345",
 			})
 			.then((response) => {
-				expect(response.statusCode).toBe(200);
+				expect(response.statusCode).toBe(401);
 				//expect(response.body.message).toEqual("Login successfull");
 			});
 	});

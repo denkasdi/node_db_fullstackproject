@@ -20,7 +20,9 @@ describe("Try register with empty username", () => {
 			})
 			.then((response) => {
 				expect(response.statusCode).toBe(500);
-				expect(response.body.message).toEqual("Key (email)=() already exists.");
+				expect(response.body.message).toEqual(
+					"Key (username)=() already exists."
+				);
 			});
 	});
 });

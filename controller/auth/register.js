@@ -23,10 +23,6 @@ const register = async (req, res) => {
 				body.rate,
 			]
 		);
-		// .then(
-		// 	async () =>
-		// 		await query("SELECT * FROM users WHERE username=$1", [body.username])
-		// );
 
 		const serverRes = {
 			message: "A user created",
